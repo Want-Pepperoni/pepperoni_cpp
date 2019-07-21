@@ -1,0 +1,31 @@
+#Problem solution for chapter 2
+//
+//  main.cpp
+//  chapter 2
+//
+//  Created by 최진 on 21/07/2019.
+//  Copyright © 2019 CJ. All rights reserved.
+//
+
+// 1. Write a program that prints out your name.
+
+#include <iostream>
+using namespace std;
+
+int main() {
+    cout << "Pepperoni" << endl;
+}
+
+// 2. Write a program that displays multiple lines of text onto the screen, each one displaying the name of one of your friend.
+
+#include <iostream>
+using namespace std;
+
+int main() {
+    cout << "Pepperoni\n";
+    cout << "Potatoes\n";
+    cout << "Hawaiian\n";
+}
+
+// 3. Try commenting out each line of code in the first program we created together and see wheter the program can compile without it.
+Look at the errors you get - do they make any sense? Can you see why they happened because of the line of code you changed?
