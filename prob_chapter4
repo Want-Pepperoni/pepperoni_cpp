@@ -1,0 +1,107 @@
+# problem solution for chapter 4
+
+//
+//  main.cpp
+//  chapter 4
+//
+//  Created by 최진 on 21/07/2019.
+//  Copyright © 2019 CJ. All rights reserved.
+//
+
+// 1. Ask the user for two user's ages, and indicate who is older; begave differently if both are over 100.
+
+#include <iostream>
+#include <string>
+
+using namespace std;
+
+int main() {
+    int a, b;
+    cout << "First age: ";
+    cin >> a;
+    cout << "Second age: ";
+    cin >> b;
+    if (a < 0 || b < 0) cout << "Wrong input\n";
+    else if (a > 100 && b > 100) cout << "It's time to die\n";
+    else if (a > b) cout << "First one is the older\n";
+    else if (a < b) cout << "Second one is the older\n";
+    else cout << "Both are the same age\n";
+}
+
+// 2. Implement a simple "password" system that takes a password in the form of number. Make it so that either of two numbers
+are valid, but use only one if statement to do the check.
+
+#include <iostream>
+#include <string>
+
+using namespace std;
+
+int main() {
+    int password;
+    cout << "Password: ";
+    cin >> password;
+    // correct passwords are either 1234 or 5678
+    if (password == 1234 || password == 5678)
+        cout << "Access allowed\n";
+    else cout << "Access denied\n";
+}
+
+// 3. Write a small calculator that takes as input one of the four arithmetic operations, the two arguments to those
+operations, and then prints out the result.
+
+#include <iostream>
+#include <string>
+
+using namespace std;
+
+int main() {
+    double a, b;
+    string operation;
+    cout << "First input: ";
+    cin >> a;
+    cout << "Second input: ";
+    cin >> b;
+    cout << "Operation: ";
+    cin >> operation;       // Possible to use getline(cin, operation)
+    
+    if (operation == "+") cout << a + b << endl;
+    else if (operation == "-") cout << a - b << endl;
+    else if (operation == "*") cout << a * b << endl;
+    else if (operation == "/") {
+        if (b == 0) cout << "Denominator cannot be 0\n";
+        else cout << a / b << endl;
+    }
+    else cout << "Undefined operation\n";
+}
+
+// 4. Expand the password checking program from earlier in this chapter and make it take multiple usernames,
+each with their own password, and ensure that the right username is used for the right password. Provide the ability
+to prompt user's again if the first login attempt failed. Think about how easy(or hard) it is to do this for a lot of
+usernames and passwords.
+
+// 5. Think about what kind of language constructs or features would make it easier to add new users without recompiling
+the password program. (Note: don't fell like you need to solve these problems with the C++ you've learned so far, the goal
+is to think about how you might use tools we'll pick up in future chapters.)
+
+// 6. Make a up-down game to guess a number between 1 - 50.
+
+#include <iostream>
+#include <string>
+
+using namespace std;
+
+int main() {
+    int a = 27;
+    int guess;
+    cout << "You cannot get out of this game until you guess the correct number\n";
+    int i = 1;
+    do {
+        cout <<  i << "th guess: ";
+        cin >> guess;
+        i++;
+        if (guess < 1 || guess > 50) cout << "The number is between 1 and 50\n";
+        else if (guess < a) cout << "up\n";
+        else if (guess > a) cout << "down\n";
+    } while (guess != a);
+    cout << "Correct!\n";
+}
