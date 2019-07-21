@@ -1,0 +1,56 @@
+#problem solution for chapter 3
+//
+//  main.cpp
+//  chapter 3
+//
+//  Created by 최진 on 21/07/2019.
+//  Copyright © 2019 CJ. All rights reserved.
+//
+
+// 1. Write a program that outputs your name
+
+#include <iostream>
+#include <string>
+
+using namespace std;
+
+int main() {
+    cout << "What is your name?: ";
+    string name;
+    getline(cin, name);
+    cout << "Your name is " << name << endl;
+}
+
+// 2. Write a program that reads in two numbers and adds them together
+
+#include <iostream>
+#include <string>
+
+using namespace std;
+
+int main() {
+    double a, b;
+    cout << "First input: ";
+    cin >> a;
+    cout << "Second input: ";
+    cin >> b;
+    cout << "The result is " << a + b << endl;
+}
+
+// 3. Write a program that performs division of two numbers read fro, the user and prints out an exact result.
+Make sure to test your program with both integer inputs and decimal inputs
+
+#include <iostream>
+#include <string>
+
+using namespace std;
+
+int main() {
+    double a, b;
+    cout << "First input: ";
+    cin >> a;
+    cout << "Second input: ";
+    cin >> b;
+    if (b == 0) cout << "Wrong input";
+    else cout << "The result is " << a / b << endl;
+}
