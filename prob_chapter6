@@ -1,0 +1,121 @@
+//
+//  main.cpp
+//  chapter 6
+//
+//  Created by 최진 on 21/07/2019.
+//  Copyright © 2019 CJ. All rights reserved.
+//
+
+// 1. Take the "menu program" you wrote earlier and break it out into a series of calls to functions for each of the menu items. Add the calculator and "100 bottles of beer" as two diffirent functions that can be called.
+
+#include <iostream>
+#include <string>
+
+using namespace std;
+
+void bottles_of_beer () {
+    for (int i = 99; i > 2; i--) {
+        cout << i << " bottles of beer on the wall, " << i << " bottles of beer.\n";
+        cout << "Take one down and pass it around, " << i - 1 << " bottles of beer on the wall.\n";
+        cout << "\n";
+    }
+    cout << "2 bottles of beer on the wall, 2 bottles of beer.\n";
+    cout << "Take one down and pass it around, 1 bottle of beer on the wall.\n";
+    cout << "\n";
+    cout << "1 bottle of beer on the wall, 1 bottle of beer.\n";
+    cout << "Take one down and pass it around, no more bottles of beer on the wall\n";
+    cout << "\n";
+    cout << "No more bottles of beer on the wall, no more bottles of beer.\n";
+    cout << "Go the the store and buy some more, 99 bottles of beer on the wall.\n";
+}
+
+double calculator() {
+    string operation;
+    double a, b;
+    cout << "First input: ";
+    cin >> a;
+    cout << "Second input: ";
+    cin >> b;
+    cout << "Operation: ";
+    cin >> operation;
+    
+    if (operation == "+") return a + b;
+    else if (operation == "-") return a - b;
+    else if (operation == "*") return a * b;
+    else if (operation == "/") {
+        if (b == 0) {
+            cout << "Denominator cannot be 0\n";
+            return 0;
+        }
+        else return a / b;
+    }
+    else {
+        cout << "Undefined operation\n";
+        return 0;
+    
+    }
+} // return does not print the result
+
+
+int main() {
+    double result = calculator();
+    cout << result << endl;
+    
+}
+
+// 2. Make your calculator program perform computations in a separate function for each type of computation.
+
+#include <iostream>
+#include <string>
+
+using namespace std;
+
+double add(double a, double b) {
+    return a + b;
+}
+double subtract(double a, double b) {
+    return a - b;
+}
+double multiplication(double a, double b) {
+    return a * b;
+}
+double division(double a, double b) {
+    if (b == 0) {
+        cout << "Denominator cannot be 0\n";
+        return 0;
+    }
+    else return a / b;
+}
+
+double calculator(double a, double b, string operation) {
+    if (operation == "+") return add(a, b);
+    else if (operation == "-") return subtract(a, b);
+    else if (operation == "*") return multiplication(a, b);
+    else if (operation == "/") return division(a, b);
+    else {
+        cout << "Undefined operation";
+        return 0;
+    }
+}
+
+// 3. Modify your password program from before to put all of the password checking logic into a separate function, apart from the rest of the program.
+
+#include <iostream>
+#include <string>
+
+using namespace std;
+
+string confirmPassword(int password) {
+    if (password == 1234 || password == 5678)
+        return "Access allowed\n";
+    else return "Access denied\n";
+}
+
+int main() {
+    int password;
+    cout << "Password: ";
+    cin >> password;
+    
+    string result = confirmPassword(password);
+    cout << result << endl;
+}
