@@ -1,1 +1,229 @@
+//
+//  main.cpp
+//  chapter 5
+//
+//  Created by 최진 on 21/07/2019.
+//  Copyright © 2019 CJ. All rights reserved.
+//
+
+// 1. Write a program that prints out the entire lyrics to a full rendition of "99 bottles of beer"
+
+#include <iostream>
+#include <string>
+
+using namespace std;
+
+//using while
+int main() {
+    int i = 99;
+    while (i > 2) {
+        cout << i << " bottles of beer on the wall, " << i << " bottles of beer.\n";
+        cout << "Take one down and pass it around, " << i - 1 << " bottles of beer on the wall.\n";
+        cout << "\n";
+        i--;
+    }
+    cout << "2 bottles of beer on the wall, 2 bottles of beer.\n";
+    cout << "Take one down and pass it around, 1 bottle of beer on the wall.\n";
+    cout << "\n";
+    cout << "1 bottle of beer on the wall, 1 bottle of beer.\n";
+    cout << "Take one down and pass it around, no more bottles of beer on the wall\n";
+    cout << "\n";//
+    cout << "No more bottles of beer on the wall, no more bottles of beer.\n";
+    cout << "Go the the store and buy some more, 99 bottles of beer on the wall.\n";
+    
+}
+
+//using do-while
+int main() {
+    int i = 99;
+    do {
+        cout << i << " bottles of beer on the wall, " << i << " bottles of beer.\n";
+        cout << "Take one down and pass it around, " << i - 1 << " bottles of beer on the wall.\n";
+        cout << "\n";
+        i--;
+    } while (i > 2);
+    cout << "2 bottles of beer on the wall, 2 bottles of beer.\n";
+    cout << "Take one down and pass it around, 1 bottle of beer on the wall.\n";
+    cout << "\n";
+    cout << "1 bottle of beer on the wall, 1 bottle of beer.\n";
+    cout << "Take one down and pass it around, no more bottles of beer on the wall\n";
+    cout << "\n";
+    cout << "No more bottles of beer on the wall, no more bottles of beer.\n";
+    cout << "Go the the store and buy some more, 99 bottles of beer on the wall.\n";
+}
+
+//using for
+int main() {
+    for (int i = 99; i > 2; i--) {
+        cout << i << " bottles of beer on the wall, " << i << " bottles of beer.\n";
+        cout << "Take one down and pass it around, " << i - 1 << " bottles of beer on the wall.\n";
+        cout << "\n";
+    }
+    cout << "2 bottles of beer on the wall, 2 bottles of beer.\n";
+    cout << "Take one down and pass it around, 1 bottle of beer on the wall.\n";
+    cout << "\n";
+    cout << "1 bottle of beer on the wall, 1 bottle of beer.\n";
+    cout << "Take one down and pass it around, no more bottles of beer on the wall\n";
+    cout << "\n";
+    cout << "No more bottles of beer on the wall, no more bottles of beer.\n";
+    cout << "Go the the store and buy some more, 99 bottles of beer on the wall.\n";
+}
+
+// 2. Write a menu program that list the user select from a list of options, and if the input is not one of the options, reprint the list.
+
+#include <iostream>
+#include <string>
+
+using namespace std;
+
+//using while
+int main() {
+    cout << "<<Menu>>\n";
+    cout << "Coke, Pepsi, Sprite\n";
+
+    string menu;
+    cout << "What do u want to drink?: ";
+    getline(cin, menu);
+    
+    while (menu != "Coke" && menu != "Pepsi" && menu != "Sprite") {
+        cout << "<<Menu>>\n";
+        cout << "Coke, Pepsi, Sprite\n";
+        cout << "What do u want to drink?: ";
+        getline(cin, menu);
+    }
+    cout << "Thank you for ordering!\n";
+}
+
+//using  do-while
+int main() {
+    string menu;
+    do {
+        cout << "<<Menu>>\n";
+        cout << "Coke, Pepsi, Sprite\n";
+        cout << "What do u want to drink?: ";
+        getline(cin, menu);
+    } while (menu != "Coke" && menu != "Pepsi" && menu != "Sprite");
+
+    cout << "Thank you for ordering!\n";
+}
+
+//using  for
+int main() {
+    cout << "Thank you for ordering!\n";
+    for (string menu = "None"; menu != "Coke" && menu != "Pepsi" && menu != "Sprite"; getline(cin, menu)) {
+        cout << "<<Menu>>\n";
+        cout << "Coke, Pepsi, Sprite\n";
+        cout << "What do u want to drink?: ";
+    }
+    cout << "Thank you for ordering!\n"
+}
+
+// 3. Write a program that computes a running sum of inputs from the user, terminating when the user gives an input value of 0.
+
+#include <iostream>
+#include <string>
+
+using namespace std;
+
+//using while
+int main () {
+    int sum = 0;
+    int i = 1, j = 1;
+    
+    while (j != 0) {
+        cout << i << "th input: ";
+        cin >> j;
+        sum += j;
+        i++;
+    }
+    cout << "The result is " << sum << endl;
+}
+
+//using do-while
+int main () {
+    int sum = 0;
+    int i = 1, j = 1;
+    
+    do {
+        cout << i << "th input: ";
+        cin >> j;
+        sum += j;
+        i++;
+    } while (j != 0);
+    
+    cout << "The result is " << sum << endl;
+}
+
+//using for
+int main () {
+    int sum = 0;
+    for (int i = 1, j = 1; j != 0; i++) {
+        cout << i << "th input: ";
+        cin >> j;
+        sum += j;
+    }
+    cout << "The result is " << sum << endl;
+}
+
+// 4. Write a password prompt that gives a user only a certain number of passward entry attempts - so that the user cannot easily wirte a password cracker.
+
+// 5. Try writing each practice problem with each kind of loop - notice which loops work well for each kind of problem.
+
+// 6. Write a program that displays the first 20 square numbers.
+
+#include <iostream>
+using namespace std;
+
+int main() {
+    for (int i = 1; i <= 20; i++) {
+        cout << i*i << endl;
+    }
+}
+
+// 7. Write a program that provides the option of tallying up the results of a poll with 3 possible values. The first input to the program is the poll question; the next three inputs are the possible answers. The first answer is indicated by 1, the second by 2, the third by 3. The answers are tallied until a 0 is entered. The program should then show the results of the poll - try making a bar graph that shows the results properly scaled to fit on your screen no matter how many results were entered.
+
+#include <iostream>
+using namespace std;
+
+int main() {
+    string question;
+    string first_input, second_input, third_input;
+    int i = 0, j = 0, k = 0;
+    cout << "Enter the poll question: ";
+    getline(cin, question);
+    cout << "Enter the possible answers: \n";
+    cout << "1. :";
+    cin >> first_input;
+    cout << "2. :";
+    cin >> second_input;
+    cout << "3. :";
+    cin >> third_input;
+    
+    int answer;
+    do {
+        cout << "What is your selection?: ";
+        cin >> answer;
+        if (answer == 1) i++;
+        else if (answer == 2) j++;
+        else if (answer == 3) k++;
+        else if (answer != 0) cout << "Wrong input\n";
+    } while (answer != 0);
+    
+    cout << first_input << ": ";
+    for (int l = 1; l <= i; l++) {
+        cout << "*";
+    }
+    cout << "\n";
+    cout << second_input << ": ";
+    for (int l = 1; l <= j; l++) {
+        cout << "*";
+    }
+    cout << "\n";
+    cout << third_input << ": ";
+    for (int l = 1; l <= k; l++) {
+        cout << "*";
+    }
+    cout << "\n";
+}
+
 
