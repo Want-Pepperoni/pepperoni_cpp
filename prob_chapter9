@@ -1,0 +1,117 @@
+//
+//  main.cpp
+//  chapter 9
+//
+//  Created by 최진 on 21/07/2019.
+//  Copyright © 2019 CJ. All rights reserved.
+//
+
+// 1. Write a program that simulates a coin flip. Run it many times - do the results look random to you?
+#include <iostream>
+#include <string>
+#include <cstdlib>
+#include <ctime>
+
+using namespace std;
+
+int randRange (int low, int high) {
+    // we get a random number, get it to be between 0 and the difference
+    return rand() % (high + 1 - low) + low;
+}
+
+int main() {
+    // call just once, at the very start
+    srand(time(NULL));
+    int countfront = 0, countback = 0;
+    for (int i = 0; i < 1000; ++i) {
+        int coinflip;
+        coinflip = randRange(0, 1);
+        if (coinflip == 0) countfront ++;
+        else countback ++;
+    }
+    cout << "The number of front is " << countfront << endl;
+    cout << "The number of back is " << countback << endl;
+}
+
+// 2. Write a program that picks a number between 1 and 100, and then lets the user guess what the number is. The program should tell the user if their guess is too high, too low, or just right.
+
+#include <iostream>
+#include <cstdlib>
+#include <ctime>
+
+using namespace std;
+
+int randRange(int low, int high) {
+    return rand() % (high + 1 - low) + low;
+}
+
+int main() {
+    srand( time(NULL));
+    int number = randRange(1, 100);
+    int guess = 0;
+    do {
+        cout << "Guess a number between 1 and 100: ";
+        cin >> guess;
+        if (guess < 1 || guess >100) cout << "Wrong input\n";
+        else if (guess > number) cout << "down\n";
+        else if (guess < number) cout << "up\n";
+    } while (guess != number);
+    cout << "correct!\n";
+}
+
+// 4. Make a "slot machine" game that randomly displays the results of a slot machine to a playser - have 3(or more) possible values for each wheel of the slot machine. Don't worry about displaying the text "spinning" by. Just choose the results and display them and print out the winnings (choose your own winning combinations)
+
+#include <iostream>
+#include <cstdlib>
+#include <ctime>
+
+using namespace std;
+
+int randRange(int low, int high) {
+    return rand() % (high + 1 - low) + low;
+}
+int main() {
+    srand( time(NULL));
+    cout << "$ SLOT MACHINE $\n";
+    cout << "Good Luck!\n";
+    
+    int a1, a2, a3;
+    int start = 0;
+    
+    for (int i = 1; i < 4;) {
+        cout << "Press 1 to spin!\n";
+        cin >> start;
+        if (start == 1) {
+            cout << "Spinning...\n";
+            switch (i) {
+                case 1:
+                    a1 = randRange(0, 9);
+                    cout << i << "th number is " << a1 << endl;
+                    i ++;
+                    break;
+                case 2:
+                    a2 = randRange(0, 9);
+                    cout << i << "th number is " << a2 << endl;
+                    i ++;
+                    break;
+                case 3:
+                    a3 = randRange(0, 9);
+                    cout << i << "th number is " << a3 << endl;
+                    i ++;
+                    break;
+                default:
+                    break;
+            }
+        }
+        else cout << "Press 1 to spin!\n";
+    }
+    cout << "Final result: " << a1 << a2 << a3 << endl;
+    int final_number = a1*100 + a2*10 + a3;
+    if (final_number == 132 || final_number == 465 || final_number == 777) cout << "Congratulations!\n";
+    else cout << "Too sad\n";
+    
+}
+
+// 5. Write a program to play poker! you can provide 5 cards to the player, let that playser choose new cards, and then determine how good the hand is. Think about whether this is easy to do? What problems might you have in terms of keeping track of cards that have been drawn already? Was this easier or harder than the slow machine?
+
+// I would come back to this problem after I learn arrays.
