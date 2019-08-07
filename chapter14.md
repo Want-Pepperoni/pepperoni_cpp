@@ -91,3 +91,55 @@ int *growArray (int *p_values, int *size) {
 ~~~
 
 #### 다차원 배열
+
+
+#### 연습문제 2. Write a function that takes 3 arguments, a length. width and height, dynamically allocates a 3 - dim'l array with those values and fills the 3 - dim'l array with multiplication tables. Make sure to free the array when you are done.
+
+~~~
+#include <iostream>
+using namespace std;
+
+int main() {
+    int size_length;
+    int size_width;
+    int size_height;
+    
+    cout << "Size of length: ";
+    cin >> size_length;
+    cout << "Size of width: ";
+    cin >> size_width;
+    cout << "Size of height: ";
+    cin >> size_height;
+    
+    // declaring the board
+    int *** p_p_p_table;
+    p_p_p_table = new int**[size_length];
+    for (int i = 0; i < size_length; i++) {
+        p_p_p_table[i] = new int*[size_width];
+        for (int j = 0; j < size_width; j ++) {
+            p_p_p_table[i][j] = new int[size_height];
+        }
+    }
+    
+    // fill in the board and print
+    for (int i = 0; i < size_length; i++) {
+        for (int j = 0; j < size_width; j++) {
+            for (int k = 0; k < size_height; k++) {
+                p_p_p_table[i][j][k] = (i + 1) * (j + 1) * (k + 1);
+                cout << i + 1 << " * " << j + 1 << " * " << k + 1 << " = " << p_p_p_table[i][j][k] << endl;
+            }
+            cout << endl;
+        }
+        cout << endl;
+    }
+    
+    // freeing the memory
+    for (int i = 0; i < size_length; i++) {
+        for (int j = 0; j < size_width; j++) {
+            delete[] p_p_p_table[i][j];
+        }
+        delete[] p_p_p_table[i];
+    }
+    delete[] p_p_p_table;
+}
+~~~
